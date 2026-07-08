@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrition Worthy — Mindful Nutrition with Shyler Landry, M.S.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF;
+    --cream-2:#F3ECDF;
+    --ink:#2E3A32;
+    --green:#2F4A3C;
+    --green-2:#3E5C4B;
+    --sage:#9DB49B;
+    --sage-light:#E4EBE0;
+    --terra:#C96F4A;
+    --terra-dark:#B05A38;
+    --gold:#D8A24A;
+    --white:#FFFFFF;
+    --shadow:0 10px 30px rgba(47,74,60,.10);
+    --shadow-lg:0 18px 50px rgba(47,74,60,.16);
+    --radius:18px;
+    --serif:"Fraunces", Georgia, serif;
+    --sans:"Karla", -apple-system, "Segoe UI", sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;font-size:16.5px}
+  h1,h2,h3,h4{font-family:var(--serif);color:var(--green);font-weight:500;line-height:1.15}
+  img{max-width:100%}
+  a{color:var(--terra)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;color:var(--terra);display:block;margin-bottom:14px}
+  .section{padding:88px 0}
+  .section-head{max-width:640px;margin:0 auto 52px;text-align:center}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
+  .section-head p{color:#5b6a5e}
+  .btn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;font-family:var(--sans)}
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-primary{background:var(--terra);color:#fff}
+  .btn-primary:hover{background:var(--terra-dark)}
+  .btn-dark{background:var(--green);color:#fff}
+  .btn-ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+  .btn-sm{padding:9px 20px;font-size:.85rem}
+  .pill{display:inline-block;background:var(--sage-light);color:var(--green);border-radius:999px;padding:4px 14px;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+  /* Announcement bar */
+  .announce{background:var(--green);color:#F3ECDF;text-align:center;padding:10px 16px;font-size:.85rem;letter-spacing:.03em}
+  .announce b{color:var(--gold)}
+  .announce a{color:#fff;font-weight:700}
+
+  /* Nav */
+  nav{position:sticky;top:0;background:rgba(250,246,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(47,74,60,.08);z-index:100}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1240px;margin:0 auto}
+  .logo{font-family:var(--serif);font-size:1.45rem;color:var(--green);text-decoration:none;font-weight:600}
+  .logo span{color:var(--terra);font-style:italic}
+  .nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+  .nav-links a{color:var(--green);text-decoration:none;font-weight:600;font-size:.92rem}
+  .nav-links a:hover{color:var(--terra)}
+  .nav-cta{background:var(--terra);color:#fff !important;padding:10px 22px;border-radius:999px}
+  .hamburger{display:none;background:none;border:none;font-size:1.6rem;color:var(--green);cursor:pointer}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,var(--cream) 0%, var(--sage-light) 100%);overflow:hidden;position:relative}
+  .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;padding:90px 24px 100px;max-width:1160px;margin:0 auto}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.7rem);margin:18px 0 22px}
+  .hero h1 em{color:var(--terra);font-style:italic}
+  .hero p.lead{font-size:1.15rem;color:#4c5c50;max-width:520px;margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-art{position:relative;min-height:420px}
+  .blob{position:absolute;border-radius:50%;filter:blur(0px)}
+  .hero-card{position:absolute;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:18px 22px;font-size:.9rem}
+  .hero-badges{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;color:#5b6a5e;font-size:.88rem;font-weight:600}
+  .hero-badges span{display:flex;align-items:center;gap:8px}
+
+  /* Trust bar */
+  .trust{background:var(--green);color:#DCE7DC;padding:26px 0}
+  .trust .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;text-align:center}
+  .trust b{color:#fff;font-family:var(--serif);font-size:1.15rem;display:block}
+  .trust div{flex:1;min-width:170px;font-size:.85rem}
+
+  /* Courses */
+  .course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:26px}
+  .course{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease}
+  .course:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .course-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+  .c-immune .course-banner{background:linear-gradient(135deg,#E8F0E4,#CFE0C8)}
+  .c-gut .course-banner{background:linear-gradient(135deg,#F6E8DC,#EDD3BD)}
+  .c-energy .course-banner{background:linear-gradient(135deg,#FBF3DC,#F3E3B4)}
+  .c-weight .course-banner{background:linear-gradient(135deg,#E6E9F2,#CFD7E8)}
+  .course-body{padding:26px;display:flex;flex-direction:column;flex:1}
+  .course-body h3{font-size:1.35rem;margin:10px 0 8px}
+  .course-body p{font-size:.92rem;color:#5b6a5e;flex:1}
+  .course-meta{margin:16px 0 18px;font-size:.82rem;color:#7c8a7e;display:flex;gap:14px}
+  .price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+  .price{font-family:var(--serif);font-size:1.7rem;color:var(--green);font-weight:600}
+  .price-was{text-decoration:line-through;color:#a9b3aa;font-size:.95rem}
+  .bundle{margin-top:36px;background:var(--green);border-radius:var(--radius);color:#E8F0E4;padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;box-shadow:var(--shadow-lg)}
+  .bundle h3{color:#fff;font-size:1.6rem;margin-bottom:8px}
+  .bundle .price{color:var(--gold);font-size:2.1rem}
+  .bundle small{display:block;color:#B9CBB9;margin-top:4px}
+
+  /* Meal plans */
+  .plans{background:var(--cream-2)}
+  .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:stretch}
+  .plan{background:#fff;border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+  .plan.featured{border:2.5px solid var(--terra);transform:scale(1.03)}
+  .plan .flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--terra);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:999px;white-space:nowrap}
+  .plan h3{font-size:1.3rem;margin-bottom:6px}
+  .plan .price{font-size:2rem;margin:12px 0 2px}
+  .plan .per{color:#8a978c;font-size:.85rem;margin-bottom:18px}
+  .plan ul{list-style:none;margin:0 0 26px;flex:1}
+  .plan li{padding:7px 0;font-size:.92rem;color:#4c5c50;display:flex;gap:10px}
+  .plan li::before{content:"✓";color:var(--terra);font-weight:800}
+  .plan .btn{text-align:center}
+
+  /* Recipes */
+  .filter-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+  .filter{background:#fff;border:1.5px solid rgba(47,74,60,.18);border-radius:999px;padding:8px 20px;font-weight:600;font-size:.86rem;color:var(--green);cursor:pointer;font-family:var(--sans)}
+  .filter.active{background:var(--green);color:#fff;border-color:var(--green)}
+  .recipe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:26px}
+  .recipe{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease}
+  .recipe:hover{transform:translateY(-5px)}
+  .recipe-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;background:linear-gradient(135deg,var(--sage-light),#F3ECDF)}
+  .recipe-body{padding:22px;flex:1;display:flex;flex-direction:column}
+  .recipe-body h3{font-size:1.12rem;margin:8px 0 6px}
+  .recipe-body p{font-size:.86rem;color:#6b796e;flex:1}
+  .recipe-tags{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+  .tag{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--sage-light);border-radius:999px;padding:3px 10px}
+  .recipe-actions{display:flex;gap:10px}
+  .recipe-actions .btn{flex:1;text-align:center;padding:10px 8px;font-size:.8rem}
+
+  /* Shop */
+  .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+  .shop-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 28px;text-align:center;display:flex;flex-direction:column;transition:transform .2s ease}
+  .shop-card:hover{transform:translateY(-5px)}
+  .shop-icon{font-size:2.8rem;margin-bottom:14px}
+  .shop-card h3{font-size:1.2rem;margin-bottom:8px}
+  .shop-card p{font-size:.88rem;color:#5b6a5e;flex:1;margin-bottom:18px}
+  .code-chip{background:var(--cream-2);border:1.5px dashed var(--terra);color:var(--terra-dark);border-radius:10px;padding:7px 12px;font-weight:800;font-size:.82rem;letter-spacing:.08em;margin-bottom:16px}
+
+  /* Story / about */
+  .about{background:var(--cream-2)}
+  .about-inner{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .about-photo{background:linear-gradient(160deg,var(--sage) 0%,var(--green) 100%);border-radius:24px;height:460px;display:flex;align-items:flex-end;justify-content:center;font-size:7rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .about-photo .caption{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(255,255,255,.92);border-radius:14px;padding:14px 18px;font-size:.85rem;color:var(--green);text-align:left}
+  .about h2{font-size:clamp(1.9rem,3.4vw,2.5rem);margin-bottom:18px}
+  .about p{color:#4c5c50;margin-bottom:16px}
+  .about blockquote{border-left:3px solid var(--terra);padding:6px 0 6px 20px;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--green);margin:22px 0}
+
+  /* Testimonials */
+  .quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+  .quote{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+  .quote .stars{color:var(--gold);letter-spacing:3px;margin-bottom:12px}
+  .quote p{font-size:.94rem;color:#4c5c50;font-style:italic;margin-bottom:16px}
+  .quote b{font-size:.88rem;color:var(--green)}
+
+  /* Lead magnet */
+  .magnet{background:linear-gradient(140deg,var(--green),var(--green-2));color:#E8F0E4;border-radius:26px;padding:56px 52px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;box-shadow:var(--shadow-lg)}
+  .magnet h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:12px}
+  .magnet p{color:#C4D4C4;margin-bottom:0}
+  .magnet form{display:flex;gap:12px;flex-wrap:wrap}
+  .magnet input{flex:1;min-width:220px;border:none;border-radius:999px;padding:15px 22px;font-size:.95rem;font-family:var(--sans)}
+  .magnet .fine{font-size:.75rem;color:#9FB69F;margin-top:12px}
+
+  /* Footer */
+  footer{background:var(--ink);color:#B8C2BA;padding:64px 0 32px;font-size:.88rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+  footer h4{color:#fff;font-size:1rem;margin-bottom:14px;font-family:var(--sans);font-weight:700}
+  footer a{color:#B8C2BA;text-decoration:none;display:block;padding:4px 0}
+  footer a:hover{color:#fff}
+  .foot-logo{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:12px}
+  .disclaimer{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:.75rem;color:#8a978c;line-height:1.7}
+
+  /* Modal */
+  .modal-back{position:fixed;inset:0;background:rgba(46,58,50,.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+  .modal-back.open{display:flex}
+  .modal{background:#fff;border-radius:22px;max-width:520px;width:100%;max-height:85vh;overflow:auto;padding:36px;position:relative}
+  .modal h3{font-size:1.5rem;margin-bottom:4px}
+  .modal .sub{color:#7c8a7e;font-size:.86rem;margin-bottom:22px}
+  .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#7c8a7e}
+  .ing{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #EFEAE0;font-size:.92rem}
+  .ing a{font-size:.78rem;font-weight:700;text-decoration:none;background:var(--sage-light);color:var(--green);padding:6px 14px;border-radius:999px;white-space:nowrap}
+  .ing a:hover{background:var(--green);color:#fff}
+  .modal .btn{width:100%;text-align:center;margin-top:22px}
+  .modal input,.modal select,.modal textarea{width:100%;border:1.5px solid #DDD6C8;border-radius:12px;padding:12px 16px;font-family:var(--sans);font-size:.95rem;margin-bottom:12px;background:#FBF9F4}
+  .modal label{font-size:.78rem;font-weight:700;color:var(--green);display:block;margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase}
+  .demo-note{background:var(--cream-2);border-radius:10px;padding:10px 14px;font-size:.78rem;color:#8a978c;text-align:center;margin-top:14px}
+  .order-line{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #EFEAE0;font-size:.95rem}
+  .order-line b{font-family:var(--serif);font-size:1.1rem;color:var(--green)}
+  .success-box{text-align:center;padding:24px 0}
+  .success-box .check{width:70px;height:70px;border-radius:50%;background:var(--sage-light);color:var(--green);font-size:2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .rsteps{counter-reset:step;margin:18px 0}
+  .rstep{display:flex;gap:14px;padding:10px 0;font-size:.93rem;color:#4c5c50}
+  .rstep::before{counter-increment:step;content:counter(step);flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--sage-light);color:var(--green);font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+  .rmeta{display:flex;gap:18px;font-size:.85rem;color:#7c8a7e;margin-bottom:6px}
+  .fave-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #EFEAE0;font-size:.92rem}
+  .fave-row a{font-size:.78rem;font-weight:700;text-decoration:none;background:var(--sage-light);color:var(--green);padding:6px 14px;border-radius:999px;white-space:nowrap}
+  .fave-row a:hover{background:var(--green);color:#fff}
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--green);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;font-size:.9rem;box-shadow:var(--shadow-lg);transition:transform .35s ease;z-index:300}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;padding:60px 24px}
+    .hero-art{display:none}
+    .about-inner{grid-template-columns:1fr}
+    .about-photo{height:340px}
+    .magnet{grid-template-columns:1fr;padding:40px 30px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid rgba(47,74,60,.1)}
+    .nav-links.open{display:flex}
+    .hamburger{display:block}
+    .plan.featured{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">🌿 New here? Grab the <b>free 3-Day Gut Reset Guide</b> — <a href="#free-guide">download it now</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">Nutrition <span>Worthy</span></a>
+    <button class="hamburger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#meal-plans">Meal Plans</a></li>
+      <li><a href="#recipes">Recipes</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#free-guide" class="nav-cta">Free Guide</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Mindful Nutrition · Shyler Landry, M.S.</span>
+      <h1>You are <em>worthy</em> of feeling healthy&nbsp;&amp;&nbsp;happy.</h1>
+      <p class="lead">Self-paced nutrition courses, done-for-you meal plans, and gut-loving recipes — rooted in integrative &amp; functional nutrition, built for real life.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#courses">Explore the Courses</a>
+        <a class="btn btn-ghost" href="#free-guide">Get the Free Guide</a>
+      </div>
+      <div class="hero-badges">
+        <span>🎓 M.S. Integrative &amp; Functional Nutrition</span>
+        <span>🫧 Co-founder, Alive &amp; Well Kombucha</span>
+        <span>🥗 500+ students &amp; readers</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="blob" style="width:340px;height:340px;background:linear-gradient(140deg,var(--sage),var(--green));top:30px;right:30px"></div>
+      <div class="blob" style="width:120px;height:120px;background:var(--gold);opacity:.5;top:0;right:320px"></div>
+      <div class="blob" style="width:80px;height:80px;background:var(--terra);opacity:.55;bottom:20px;right:0"></div>
+      <a class="hero-card" href="#courses" style="top:60px;right:250px;cursor:pointer;text-decoration:none;color:var(--ink)">🥑 <b>Gut Health Reset</b><br><small>Module 3 of 6 · 62% complete</small></a>
+      <a class="hero-card" href="#meal-plans" style="bottom:70px;right:40px;cursor:pointer;text-decoration:none;color:var(--ink)">🧾 <b>This week's meal plan</b><br><small>Grocery list ready → tap to shop</small></a>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="wrap">
+    <div><b>4</b>Signature Courses</div>
+    <div><b>50+</b>Whole-food Recipes</div>
+    <div><b>Weekly</b>Fresh Meal Plans</div>
+    <div><b>Est. 2020</b>Dallas, Texas</div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section class="section" id="courses">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Learn at your own pace</span>
+      <h2>Nutrition Courses that Meet You Where You Are</h2>
+      <p>Each course is 6 self-paced video modules with workbooks, recipes, and grocery guides. Lifetime access. No fluff, no fads.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course c-immune">
+        <div class="course-banner">🛡️</div>
+        <div class="course-body">
+          <span class="pill">Immune Health</span>
+          <h3>Resilient by Nature</h3>
+          <p>Build a food-first immune foundation: gut–immune connection, key micronutrients, fermented foods, and a seasonal wellness routine.</p>
+          <div class="course-meta"><span>📺 6 modules</span><span>⏱ ~3 hrs</span></div>
+          <div class="price-row"><span class="price">$97</span><span class="price-was">$129</span></div>
+          <button class="btn btn-primary btn-sm" onclick="openCheckout('Resilient by Nature','$97','Immune Health course · 6 modules · lifetime access')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course c-gut">
+        <div class="course-banner">🌱</div>
+        <div class="course-body">
+          <span class="pill">Digestion</span>
+          <h3>The Gut Health Reset</h3>
+          <p>Calm bloating and support digestion with an anti-inflammatory framework, food journaling, and a gentle 3-week reset protocol.</p>
+          <div class="course-meta"><span>📺 6 modules</span><span>⏱ ~3.5 hrs</span></div>
+          <div class="price-row"><span class="price">$127</span><span class="price-was">$159</span></div>
+          <button class="btn btn-primary btn-sm" onclick="openCheckout('The Gut Health Reset','$127','Digestion course · 6 modules · lifetime access')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course c-energy">
+        <div class="course-banner">⚡</div>
+        <div class="course-body">
+          <span class="pill">Energy</span>
+          <h3>All-Day Energy</h3>
+          <p>Balance blood sugar, time your meals, and ditch the 3pm crash — with realistic swaps for coffee-fueled, busy schedules.</p>
+          <div class="course-meta"><span>📺 6 modules</span><span>⏱ ~2.5 hrs</span></div>
+          <div class="price-row"><span class="price">$97</span><span class="price-was">$129</span></div>
+          <button class="btn btn-primary btn-sm" onclick="openCheckout('All-Day Energy','$97','Energy course · 6 modules · lifetime access')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course c-weight">
+        <div class="course-banner">🌤️</div>
+        <div class="course-body">
+          <span class="pill">Weight Loss</span>
+          <h3>Nourished, Not Deprived</h3>
+          <p>Sustainable weight loss without dieting drama: portions, protein, mindset, and habits that hold up on your hardest weeks.</p>
+          <div class="course-meta"><span>📺 6 modules</span><span>⏱ ~4 hrs</span></div>
+          <div class="price-row"><span class="price">$147</span><span class="price-was">$189</span></div>
+          <button class="btn btn-primary btn-sm" onclick="openCheckout('Nourished, Not Deprived','$147','Weight loss course · 6 modules · lifetime access')">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bundle">
+      <div>
+        <span class="pill" style="background:rgba(255,255,255,.15);color:var(--gold)">Best Value</span>
+        <h3>The Worthy Wellness Bundle</h3>
+        <p>All four signature courses + the Detox &amp; Restore and Anti-Inflammatory Diet mini-courses, plus 1 month of All-Access meal plans.</p>
+      </div>
+      <div style="text-align:center">
+        <span class="price">$297</span><small>$468 value · save 36%</small>
+        <div style="margin-top:14px"><button class="btn btn-primary" onclick="openCheckout('The Worthy Wellness Bundle','$297','All 4 signature courses + 2 mini-courses + 1 month All-Access')">Get the Bundle</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEAL PLANS -->
+<section class="section plans" id="meal-plans">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Dinner, decided</span>
+      <h2>Done-for-You Meal Plans</h2>
+      <p>Dietitian-quality weekly plans with recipes, prep steps, and a one-tap grocery list you can send straight to Instacart or Amazon Fresh.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Single Plan</h3>
+        <p style="color:#7c8a7e;font-size:.88rem">One themed week, yours forever</p>
+        <div class="price">$24</div>
+        <div class="per">one-time</div>
+        <ul>
+          <li>7 days of breakfast, lunch &amp; dinner</li>
+          <li>Gut Reset, Anti-Inflammatory, Family Favorites &amp; more</li>
+          <li>Printable grocery list + prep guide</li>
+          <li>Gluten-free &amp; dairy-free swaps included</li>
+        </ul>
+        <button class="btn btn-ghost" onclick="openPlanPicker()">Browse Plans</button>
+      </div>
+      <div class="plan featured">
+        <span class="flag">Most Popular</span>
+        <h3>All-Access Membership</h3>
+        <p style="color:#7c8a7e;font-size:.88rem">A fresh plan every Friday</p>
+        <div class="price">$14<span style="font-size:1rem">/mo</span></div>
+        <div class="per">or $119/yr (save 29%)</div>
+        <ul>
+          <li>New seasonal meal plan every week</li>
+          <li>Full meal-plan library (40+ weeks)</li>
+          <li>One-tap shoppable grocery lists</li>
+          <li>Members-only recipes &amp; live Q&amp;As</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <button class="btn btn-primary" onclick="openCheckout('All-Access Membership','$14/mo','New meal plan every Friday · full library · cancel anytime')">Start for $14/mo</button>
+      </div>
+      <div class="plan">
+        <h3>Custom Family Plan</h3>
+        <p style="color:#7c8a7e;font-size:.88rem">Built around your household</p>
+        <div class="price">$89</div>
+        <div class="per">one-time · async, no appointments</div>
+        <ul>
+          <li>Intake questionnaire (allergies, picky eaters, budget)</li>
+          <li>2-week personalized plan in 5 business days</li>
+          <li>Kid-approved swaps &amp; lunchbox ideas</li>
+          <li>One round of email revisions</li>
+        </ul>
+        <button class="btn btn-ghost" onclick="openCheckout('Custom Family Plan','$89','2-week personalized plan · intake questionnaire emailed after checkout')">Get Yours</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECIPES -->
+<section class="section" id="recipes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">From my kitchen</span>
+      <h2>Recipes You Can Shop in One Tap</h2>
+      <p>Every recipe comes with a shoppable ingredient list — tap “Shop Ingredients” and the pantry stocks itself.</p>
+    </div>
+    <div class="filter-row" id="filters"></div>
+    <div class="recipe-grid" id="recipeGrid"></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" style="background:var(--cream-2)" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Shyler's picks</span>
+      <h2>Shop What I Actually Use</h2>
+      <p>Products I use daily, recommend to clients, or helped build. Some links earn a small commission at no cost to you — it keeps the recipes free.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-icon">🫧</div>
+        <h3>Alive &amp; Well Kombucha</h3>
+        <p>The small-batch kombucha company I co-founded in Texas — softer bubbles, less acidity, culinary flavors, and all the gut-health benefits.</p>
+        <div class="code-chip">CODE: WORTHY10</div>
+        <a class="btn btn-dark btn-sm" href="https://www.aliveandwellkombucha.com" target="_blank" rel="noopener">Shop Kombucha →</a>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🥣</div>
+        <h3>ProLon® Fasting Nutrition</h3>
+        <p>The 5-day Fasting Mimicking Diet I trust for metabolic resets. I work with the science team at L-Nutra, so ask me anything before you start.</p>
+        <div class="code-chip">CODE: NUTRITIONWORTHY</div>
+        <a class="btn btn-dark btn-sm" href="https://prolonlife.com" target="_blank" rel="noopener">Shop ProLon →</a>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">💊</div>
+        <h3>Supplement Dispensary</h3>
+        <p>Practitioner-grade supplements through my Fullscript dispensary — my vetted protocols for immunity, digestion, and energy at 15% off retail.</p>
+        <div class="code-chip">SAVE 15% ALWAYS</div>
+        <a class="btn btn-dark btn-sm" href="https://fullscript.com" target="_blank" rel="noopener">Browse Dispensary →</a>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🍳</div>
+        <h3>Kitchen &amp; Pantry Faves</h3>
+        <p>My Amazon storefront: the air fryer behind those shishito peppers, gluten-free baking staples, fermentation jars, and more.</p>
+        <div class="code-chip">CURATED LISTS</div>
+        <button class="btn btn-dark btn-sm" onclick="openFaves()">See My Faves →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about" style="background:var(--cream)">
+  <div class="wrap about-inner">
+    <div class="about-photo">🧘‍♀️
+      <div class="caption"><b>Shyler Landry, M.S.</b> — Integrative &amp; Functional Nutrition, Saybrook University · Lover of kombucha, chocolate &amp; yoga</div>
+    </div>
+    <div>
+      <span class="eyebrow">Hi, I'm Shyler</span>
+      <h2>Nutrition changed my life. Let it change yours.</h2>
+      <p>A Celiac Disease diagnosis at 20 sent me searching for answers — and what I found reshaped everything. Food became my medicine, my energy, and eventually my career. I earned my Master's in Integrative and Functional Nutrition, co-founded Alive &amp; Well Kombucha, and built Nutrition Worthy to share what I've learned.</p>
+      <blockquote>"Dream it. Build it. Choose habits you're excited to enact daily — until healthy feels like second nature."</blockquote>
+      <p>Everything here is designed to be self-serve: courses you can take at midnight in pajamas, meal plans that decide dinner for you, and recipes that shop for themselves. Because you are worthy of feeling healthy and happy — on your schedule.</p>
+      <a class="btn btn-primary" href="#courses">Start Learning</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kind words</span>
+      <h2>From Students &amp; Readers</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"The Gut Health Reset gave me my energy back. I stopped guessing and finally had a plan — the bloating I'd accepted for years is gone."</p>
+        <b>— Melissa R., course student</b>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"The weekly meal plans are the only reason my family eats vegetables. The one-tap grocery list is genuinely magic on a Sunday night."</p>
+        <b>— Danielle T., All-Access member</b>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"I did my first ProLon cycle with Shyler's guidance and followed it with the Anti-Inflammatory course. Down 11 lbs and sleeping better than I have in a decade."</p>
+        <b>— James K., bundle student</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="section" id="free-guide" style="padding-top:0">
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <span class="eyebrow" style="color:var(--gold)">Free download</span>
+        <h2>The 3-Day Gut Reset Guide</h2>
+        <p>A gentle, whole-foods reset with recipes, a grocery list, and my daily gut-health checklist. Join 2,000+ readers of the Worthy Weekly newsletter and it's yours, free.</p>
+      </div>
+      <div>
+        <form onsubmit="downloadGuide(event,this)">
+          <input type="text" name="fname" placeholder="First name" required>
+          <input type="email" placeholder="Email address" required>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send Me the Guide</button>
+        </form>
+        <div class="fine">No spam, ever. One thoughtful email each Friday. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORPORATE -->
+<section class="section" style="padding-top:0">
+  <div class="wrap" style="text-align:center;max-width:760px">
+    <span class="eyebrow">For teams</span>
+    <h2 style="font-size:1.9rem;margin-bottom:14px">Corporate Wellness: The Happiness Advantage</h2>
+    <p style="color:#5b6a5e;margin-bottom:24px">A 4-week workplace program — Mindfulness, Balance, Movement, Support — delivered as live workshops or licensed as an on-demand course for your whole team. Pricing scales with team size.</p>
+    <button class="btn btn-ghost" onclick="openInquiry('Corporate Wellness Proposal')">Request a Proposal</button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Nutrition <em style="color:var(--terra)">Worthy</em></div>
+        <p>Your guide to mindful nutrition. Helping you build a healthy, vibrant life — Dallas, TX.</p>
+        <p style="margin-top:12px">
+          <a href="https://www.instagram.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">📸 Instagram</a> &nbsp;·&nbsp;
+          <a href="https://www.facebook.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">👍 Facebook</a>
+        </p>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="#courses">All Courses</a>
+        <a href="#courses">The Worthy Bundle</a>
+        <a href="#free-guide">Free Gut Reset Guide</a>
+      </div>
+      <div>
+        <h4>Eat</h4>
+        <a href="#meal-plans">Meal Plans</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#shop">Shop My Picks</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="#about">About Shyler</a>
+        <a href="#" onclick="openContact();return false">Contact</a>
+        <a href="#" onclick="openInquiry('Corporate Wellness Proposal');return false">Corporate Wellness</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      © 2026 Nutrition Worthy · This website does not provide medical advice and is not intended to diagnose or treat medical conditions. Always consult your physician before making dietary changes. &nbsp;·&nbsp; <b>Affiliate disclosure:</b> some links on this site are affiliate links; Nutrition Worthy may earn a commission on qualifying purchases at no additional cost to you.
+    </div>
+  </div>
+</footer>
+
+<!-- Ingredient modal -->
+<div class="modal-back" id="modalBack" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle"></h3>
+    <div class="sub" id="modalSub"></div>
+    <div id="modalIngredients"></div>
+    <a class="btn btn-primary" id="shopAllBtn" href="#" target="_blank" rel="noopener">🛒 Shop This Recipe on Instacart</a>
+  </div>
+</div>
+
+<!-- Generic modal (recipes, checkout, forms) -->
+<div class="modal-back" id="genBack" onclick="if(event.target===this)closeGen()">
+  <div class="modal" id="genModal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const recipes = [
+  {title:"Air-Fried Shishito Peppers", emoji:"🌶️", cat:"Snacks", tags:["GF","Vegan","10 min"], time:"10 min", serves:"2–4", desc:"Blistered in the air fryer with flaky salt and a lemon-tahini dip.",
+   ings:["Shishito peppers","Avocado oil","Flaky sea salt","Tahini","Lemon","Garlic powder"],
+   steps:["Toss shishitos with avocado oil.","Air-fry at 400°F for 7–8 minutes, shaking halfway, until blistered.","Whisk tahini, lemon juice, garlic powder, and warm water into a dip.","Finish peppers with flaky salt and serve hot."]},
+  {title:"Dragon Fruit Ice Cream", emoji:"🍧", cat:"Desserts", tags:["GF","DF","No churn"], time:"10 min + freeze", serves:"4", desc:"Vibrant pink nice-cream from frozen dragon fruit and coconut milk.",
+   ings:["Frozen dragon fruit","Full-fat coconut milk","Maple syrup","Vanilla extract","Lime"],
+   steps:["Blend frozen dragon fruit with coconut milk until thick and smooth.","Add maple syrup, vanilla, and a squeeze of lime; blend again.","Serve soft-serve style, or freeze 2 hours for scoopable texture."]},
+  {title:"Grain-Free Bagels", emoji:"🥯", cat:"Breakfast", tags:["GF","Celiac-safe"], time:"35 min", serves:"6 bagels", desc:"Chewy almond-flour bagels — the Celiac-friendly breakfast that started it all.",
+   ings:["Almond flour","Tapioca starch","Eggs","Apple cider vinegar","Baking soda","Everything bagel seasoning"],
+   steps:["Preheat oven to 350°F. Whisk almond flour, tapioca starch, and baking soda.","Mix in eggs and vinegar to form a sticky dough.","Shape into 6 rings on parchment; top with seasoning.","Bake 22–25 minutes until golden. Cool before slicing."]},
+  {title:"Golden Immunity Smoothie", emoji:"🥭", cat:"Breakfast", tags:["Immune","5 min"], time:"5 min", serves:"1", desc:"Mango, turmeric, ginger, and kombucha for a probiotic morning boost.",
+   ings:["Frozen mango","Fresh ginger","Ground turmeric","Alive & Well Ginger Kombucha","Banana","Hemp seeds"],
+   steps:["Add mango, banana, ginger, and turmeric to a blender.","Pour in ginger kombucha and blend until silky.","Top with hemp seeds and drink immediately for maximum probiotics."]},
+  {title:"Rainbow Nourish Bowl", emoji:"🥗", cat:"Lunch/Sides", tags:["Gut-health","Vegan"], time:"20 min", serves:"2", desc:"Massaged kale, quinoa, fermented veggies, and a miso-maple dressing.",
+   ings:["Lacinato kale","Quinoa","Sauerkraut","Chickpeas","Avocado","White miso","Maple syrup"],
+   steps:["Cook quinoa and let cool slightly.","Massage chopped kale with a pinch of salt until tender.","Whisk miso, maple, and warm water into a dressing.","Assemble bowls with quinoa, kale, chickpeas, sauerkraut, and avocado; drizzle dressing."]},
+  {title:"Sheet-Pan Lemon Salmon", emoji:"🐟", cat:"Dinner", tags:["Anti-inflammatory","30 min"], time:"30 min", serves:"4", desc:"Omega-3 rich salmon with asparagus and herby potatoes, one pan.",
+   ings:["Wild salmon fillets","Asparagus","Baby potatoes","Lemon","Fresh dill","Olive oil","Garlic"],
+   steps:["Roast halved baby potatoes with olive oil at 425°F for 15 minutes.","Push potatoes aside; add salmon and asparagus with garlic, lemon slices, and oil.","Roast 12–14 minutes more until salmon flakes.","Shower with fresh dill and a squeeze of lemon."]},
+  {title:"Cozy Chicken & Veggie Soup", emoji:"🍲", cat:"Dinner", tags:["Immune","Freezer-friendly"], time:"45 min", serves:"6", desc:"Bone-broth based, loaded with vegetables — my sick-day staple.",
+   ings:["Chicken bone broth","Chicken thighs","Carrots","Celery","Kale","Turmeric","Bay leaves"],
+   steps:["Sauté carrots and celery until softening.","Add broth, chicken thighs, turmeric, and bay leaves; simmer 25 minutes.","Shred chicken, stir in kale, and simmer 5 more minutes.","Season and serve — freezes beautifully."]},
+  {title:"Chocolate Energy Bites", emoji:"🍫", cat:"Snacks", tags:["Energy","No bake"], time:"15 min", serves:"12 bites", desc:"Dates, cacao, and almond butter — the 3pm crash antidote.",
+   ings:["Medjool dates","Raw cacao powder","Almond butter","Gluten-free rolled oats","Chia seeds","Dark chocolate chips"],
+   steps:["Pulse pitted dates in a food processor to a paste.","Add cacao, almond butter, oats, and chia; pulse to combine.","Fold in chocolate chips, roll into 12 balls, and chill 10 minutes."]},
+  {title:"Kombucha Moscow Mule", emoji:"🍹", cat:"Cocktails", tags:["Mocktail option","Probiotic"], time:"5 min", serves:"1", desc:"Ginger kombucha stands in for the mule's fizz — with or without vodka.",
+   ings:["Alive & Well Ginger Kombucha","Lime juice","Fresh mint","Vodka (optional)","Candied ginger"],
+   steps:["Fill a copper mug with ice; add lime juice (and vodka, if using).","Top with ginger kombucha and stir gently.","Garnish with mint and candied ginger."]},
+  {title:"Berry Kefir Parfait", emoji:"🫐", cat:"Breakfast", tags:["Gut-health","5 min"], time:"5 min", serves:"1", desc:"Layers of kefir, berries, and grain-free granola for a probiotic start.",
+   ings:["Plain kefir","Mixed berries","Grain-free granola","Honey","Cinnamon"],
+   steps:["Layer kefir, berries, and granola in a glass.","Repeat the layers, then finish with honey and cinnamon."]},
+  {title:"Crispy Chickpea Tacos", emoji:"🌮", cat:"Dinner", tags:["Vegan","Family fave"], time:"25 min", serves:"4", desc:"Smoky roasted chickpeas with slaw and avocado crema in GF tortillas.",
+   ings:["Chickpeas","Smoked paprika","Corn tortillas","Red cabbage","Avocado","Lime","Greek yogurt"],
+   steps:["Roast chickpeas with smoked paprika at 425°F for 18 minutes until crispy.","Blend avocado, yogurt, and lime into a crema.","Warm tortillas; fill with chickpeas, shredded cabbage, and crema."]},
+  {title:"Lemon Blueberry Loaf", emoji:"🍋", cat:"Desserts", tags:["GF","Reader favorite"], time:"60 min", serves:"10 slices", desc:"Bright, tender, gluten-free — the most-requested recipe on the blog.",
+   ings:["Gluten-free flour blend","Blueberries","Lemon zest","Eggs","Greek yogurt","Honey"],
+   steps:["Preheat oven to 350°F; line a loaf pan.","Whisk eggs, yogurt, honey, and lemon zest; fold in flour blend.","Toss blueberries in a little flour and fold in gently.","Bake 45–50 minutes until a toothpick comes out clean."]},
+];
+
+const IC = t => 'https://www.instacart.com/store/s?k=' + encodeURIComponent(t.replace(/\s*\(.*?\)/,''));
+const AMZ = t => 'https://www.amazon.com/s?k=' + encodeURIComponent(t);
+
+const cats = ["All","Breakfast","Lunch/Sides","Dinner","Snacks","Desserts","Cocktails"];
+const filterRow = document.getElementById('filters');
+const grid = document.getElementById('recipeGrid');
+
+cats.forEach((c,i)=>{
+  const b = document.createElement('button');
+  b.className = 'filter' + (i===0?' active':'');
+  b.textContent = c;
+  b.onclick = ()=>{ document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active')); b.classList.add('active'); render(c); };
+  filterRow.appendChild(b);
+});
+
+function render(cat){
+  grid.innerHTML = '';
+  recipes.filter(r=>cat==='All'||r.cat===cat).forEach((r)=>{
+    const idx = recipes.indexOf(r);
+    const card = document.createElement('div');
+    card.className = 'recipe';
+    card.innerHTML = `
+      <div class="recipe-img">${r.emoji}</div>
+      <div class="recipe-body">
+        <span class="pill" style="align-self:flex-start">${r.cat}</span>
+        <h3>${r.title}</h3>
+        <p>${r.desc}</p>
+        <div class="recipe-tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div class="recipe-actions">
+          <button class="btn btn-ghost" onclick="openRecipe(${idx})">View Recipe</button>
+          <button class="btn btn-primary" onclick="openModal(${idx})">Shop Ingredients</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+render('All');
+
+/* ---------- Ingredient shopping modal (real Instacart / brand links) ---------- */
+function ingLink(ing){
+  if(ing.includes('Alive & Well')) return `<a href="https://www.aliveandwellkombucha.com" target="_blank" rel="noopener">Shop A&amp;W →</a>`;
+  return `<a href="${IC(ing)}" target="_blank" rel="noopener">Instacart →</a>`;
+}
+function openModal(i){
+  const r = recipes[i];
+  document.getElementById('modalTitle').textContent = r.title;
+  document.getElementById('modalSub').textContent = 'Shoppable ingredient list · affiliate links support the free recipes';
+  document.getElementById('modalIngredients').innerHTML =
+    r.ings.map(ing=>`<div class="ing"><span>${ing}</span>${ingLink(ing)}</div>`).join('');
+  document.getElementById('shopAllBtn').href = IC(r.ings[0]);
+  document.getElementById('modalBack').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalBack').classList.remove('open'); }
+
+/* ---------- Generic modal ---------- */
+const genBack = document.getElementById('genBack');
+const genModal = document.getElementById('genModal');
+function openGen(html){ genModal.innerHTML = `<button class="modal-close" onclick="closeGen()">✕</button>` + html; genBack.classList.add('open'); }
+function closeGen(){ genBack.classList.remove('open'); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeModal(); closeGen(); } });
+
+/* ---------- Full recipe view ---------- */
+function openRecipe(i){
+  const r = recipes[i];
+  openGen(`
+    <div style="font-size:2.6rem;margin-bottom:6px">${r.emoji}</div>
+    <h3>${r.title}</h3>
+    <div class="rmeta"><span>⏱ ${r.time}</span><span>🍽 Serves ${r.serves}</span><span>${r.tags.join(' · ')}</span></div>
+    <p style="color:#5b6a5e;font-size:.92rem">${r.desc}</p>
+    <h4 style="margin:18px 0 6px;font-size:1.05rem">Ingredients</h4>
+    ${r.ings.map(ing=>`<div class="ing"><span>${ing}</span>${ingLink(ing)}</div>`).join('')}
+    <h4 style="margin:20px 0 0;font-size:1.05rem">Instructions</h4>
+    <div class="rsteps">${r.steps.map(s=>`<div class="rstep"><span>${s}</span></div>`).join('')}</div>
+    <button class="btn btn-primary" onclick="closeGen();openModal(${i})">🛒 Shop All Ingredients</button>
+  `);
+}
+
+/* ---------- Demo checkout ---------- */
+function openCheckout(name, price, sub){
+  openGen(`
+    <h3>Checkout</h3>
+    <div class="sub">Secure demo checkout · powered by Stripe in production</div>
+    <div class="order-line"><span>${name}<br><small style="color:#8a978c">${sub}</small></span><b>${price}</b></div>
+    <form onsubmit="event.preventDefault();showSuccess('${name.replace(/'/g,'')}')" style="margin-top:18px">
+      <label>Email</label><input type="email" placeholder="you@example.com" required>
+      <label>Card number</label><input inputmode="numeric" placeholder="4242 4242 4242 4242" required>
+      <div style="display:flex;gap:12px">
+        <div style="flex:1"><label>Expiry</label><input placeholder="MM/YY" required></div>
+        <div style="flex:1"><label>CVC</label><input placeholder="123" required></div>
+      </div>
+      <button class="btn btn-primary" type="submit">Pay ${price}</button>
+    </form>
+    <div class="demo-note">🔒 Demo only — no payment is processed and nothing is stored.</div>
+  `);
+}
+function showSuccess(name){
+  openGen(`
+    <div class="success-box">
+      <div class="check">✓</div>
+      <h3>You're in!</h3>
+      <p style="color:#5b6a5e;margin:10px 0 20px">Your order for <b>${name}</b> is confirmed. In the live site, your welcome email and login link would arrive within a minute.</p>
+      <button class="btn btn-dark" onclick="closeGen()">Keep Exploring</button>
+    </div>
+  `);
+}
+
+/* ---------- Meal plan picker ---------- */
+const singlePlans = ["7-Day Gut Reset Week","Anti-Inflammatory Week","Family Favorites Week","High-Energy Athlete Week","Gluten-Free Comfort Week","15-Minute Dinners Week"];
+function openPlanPicker(){
+  openGen(`
+    <h3>Single Meal Plans</h3>
+    <div class="sub">Each plan: 7 days of meals + grocery list + prep guide · $24</div>
+    ${singlePlans.map(p=>`<div class="fave-row"><span>🧾 ${p}</span><a href="#" onclick="openCheckout('${p}','$24','7-day plan · grocery list · prep guide');return false">Buy $24</a></div>`).join('')}
+  `);
+}
+
+/* ---------- Amazon faves ---------- */
+const faves = [
+  ["Air fryer (the shishito machine)","air fryer"],
+  ["Almond flour (bagel-approved)","almond flour"],
+  ["Fermentation jar kit","fermentation jar kit"],
+  ["Copper mule mugs","copper moscow mule mugs"],
+  ["Glass meal-prep containers","glass meal prep containers"],
+  ["High-speed blender","high speed blender"],
+  ["Gluten-free 1:1 flour blend","gluten free flour blend"],
+];
+function openFaves(){
+  openGen(`
+    <h3>Kitchen &amp; Pantry Faves</h3>
+    <div class="sub">My most-used tools &amp; staples · affiliate links, no extra cost to you</div>
+    ${faves.map(([label,q])=>`<div class="fave-row"><span>🍳 ${label}</span><a href="${AMZ(q)}" target="_blank" rel="noopener">Amazon →</a></div>`).join('')}
+  `);
+}
+
+/* ---------- Inquiry + contact forms ---------- */
+function openInquiry(title){
+  openGen(`
+    <h3>${title}</h3>
+    <div class="sub">Tell me about your team — I'll reply within 2 business days.</div>
+    <form onsubmit="event.preventDefault();showSent('Thanks! Your proposal request is on its way to Shyler.')">
+      <label>Your name</label><input required>
+      <label>Company</label><input required>
+      <label>Team size</label>
+      <select required><option value="">Select…</option><option>Under 25</option><option>25–100</option><option>100–500</option><option>500+</option></select>
+      <label>Work email</label><input type="email" required>
+      <label>What are you hoping for?</label><textarea rows="3" placeholder="Lunch &amp; learns, the 4-week Happiness Advantage program, on-demand licensing…"></textarea>
+      <button class="btn btn-primary" type="submit">Send Request</button>
+    </form>
+    <div class="demo-note">Demo form — in production this posts to her CRM / email.</div>
+  `);
+}
+function openContact(){
+  openGen(`
+    <h3>Say Hello</h3>
+    <div class="sub">Questions about courses, meal plans, or partnerships</div>
+    <form onsubmit="event.preventDefault();showSent('Message sent! Shyler reads every note.')">
+      <label>Your name</label><input required>
+      <label>Email</label><input type="email" required>
+      <label>Message</label><textarea rows="4" required></textarea>
+      <button class="btn btn-primary" type="submit">Send Message</button>
+    </form>
+    <div class="demo-note">Demo form — in production this posts to her inbox.</div>
+  `);
+}
+function showSent(msg){
+  openGen(`
+    <div class="success-box">
+      <div class="check">✓</div>
+      <h3>Sent!</h3>
+      <p style="color:#5b6a5e;margin:10px 0 20px">${msg}</p>
+      <button class="btn btn-dark" onclick="closeGen()">Close</button>
+    </div>
+  `);
+}
+
+/* ---------- Lead magnet: real downloadable guide ---------- */
+function downloadGuide(e, form){
+  e.preventDefault();
+  const name = form.fname.value.trim() || 'Friend';
+  const guide = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>The 3-Day Gut Reset Guide — Nutrition Worthy</title>
+  <style>body{font-family:Georgia,serif;max-width:640px;margin:40px auto;padding:0 24px;color:#2E3A32;line-height:1.7}
+  h1{color:#2F4A3C}h2{color:#C96F4A;margin-top:32px}li{margin:6px 0}.box{background:#F3ECDF;border-radius:12px;padding:18px 22px;margin:18px 0}</style></head><body>
+  <h1>🌿 The 3-Day Gut Reset Guide</h1>
+  <p><em>Prepared for ${name} · from Shyler Landry, M.S. — Nutrition Worthy</em></p>
+  <p>Welcome! This gentle, whole-foods reset is about adding nourishment, not restriction. You are worthy of feeling healthy and happy.</p>
+  <h2>Day 1 — Calm</h2><ul><li><b>Breakfast:</b> Berry kefir parfait</li><li><b>Lunch:</b> Rainbow nourish bowl</li><li><b>Dinner:</b> Cozy chicken &amp; veggie soup</li><li><b>Habit:</b> 10 deep breaths before each meal</li></ul>
+  <h2>Day 2 — Nourish</h2><ul><li><b>Breakfast:</b> Golden immunity smoothie</li><li><b>Lunch:</b> Leftover soup + sauerkraut side</li><li><b>Dinner:</b> Sheet-pan lemon salmon</li><li><b>Habit:</b> Add one fermented food (kombucha counts!)</li></ul>
+  <h2>Day 3 — Restore</h2><ul><li><b>Breakfast:</b> Grain-free bagel + avocado</li><li><b>Lunch:</b> Nourish bowl remix</li><li><b>Dinner:</b> Crispy chickpea tacos</li><li><b>Habit:</b> Screens off 1 hour before bed</li></ul>
+  <div class="box"><b>Daily gut-health checklist:</b> 8 glasses of water · 25g+ fiber · one fermented food · a 15-minute walk · gratitude for one meal</div>
+  <h2>Grocery List</h2><ul><li>Kefir, mixed berries, grain-free granola</li><li>Kale, quinoa, sauerkraut, chickpeas, avocado</li><li>Chicken thighs, bone broth, carrots, celery</li><li>Wild salmon, asparagus, baby potatoes, lemon, dill</li><li>Frozen mango, ginger, turmeric, banana</li><li>Corn tortillas, red cabbage, smoked paprika</li></ul>
+  <p style="margin-top:32px">Ready for the full reset? The <b>Gut Health Reset course</b> takes this to 3 weeks with videos, workbooks, and live support → nutritionworthy.com</p>
+  <p style="font-size:.85em;color:#777">This guide is educational and not medical advice. Consult your physician before dietary changes.</p>
+  </body></html>`;
+  const blob = new Blob([guide], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '3-Day-Gut-Reset-Guide.html';
+  document.body.appendChild(a); a.click(); a.remove();
+  form.reset();
+  toast(`Welcome, ${name}! Your guide just downloaded 💌`);
+}
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+</script>
+</body>
+</html>
