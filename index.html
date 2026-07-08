@@ -91,6 +91,7 @@
   .c-gut .course-banner{background:linear-gradient(135deg,#F6E8DC,#EDD3BD)}
   .c-energy .course-banner{background:linear-gradient(135deg,#FBF3DC,#F3E3B4)}
   .c-weight .course-banner{background:linear-gradient(135deg,#E6E9F2,#CFD7E8)}
+  .c-brew .course-banner{background:linear-gradient(135deg,#E0EEE9,#C4E0D6)}
   .course-body{padding:26px;display:flex;flex-direction:column;flex:1}
   .course-body h3{font-size:1.35rem;margin:10px 0 8px}
   .course-body p{font-size:.92rem;color:#5b6a5e;flex:1}
@@ -200,6 +201,11 @@
   .fave-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #EFEAE0;font-size:.92rem}
   .fave-row a{font-size:.78rem;font-weight:700;text-decoration:none;background:var(--sage-light);color:var(--green);padding:6px 14px;border-radius:999px;white-space:nowrap}
   .fave-row a:hover{background:var(--green);color:#fff}
+  .ad-slot{margin-top:40px;border:2px dashed rgba(47,74,60,.25);border-radius:14px;padding:26px;text-align:center;color:#8a978c;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+  .sub-head{font-size:1.4rem;margin:52px 0 22px;text-align:center}
+  .price-tag{font-family:var(--serif);font-size:1.4rem;color:var(--green);font-weight:600;margin-bottom:12px}
+  .bump{display:flex;gap:10px;align-items:flex-start;background:var(--sage-light);border-radius:12px;padding:12px 14px;margin:16px 0 4px;font-size:.87rem;cursor:pointer;line-height:1.45}
+  .bump input{width:auto !important;margin:3px 0 0}
   .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--green);color:#fff;padding:14px 28px;border-radius:999px;font-weight:600;font-size:.9rem;box-shadow:var(--shadow-lg);transition:transform .35s ease;z-index:300}
   .toast.show{transform:translateX(-50%) translateY(0)}
 
@@ -266,7 +272,7 @@
 <!-- TRUST BAR -->
 <div class="trust">
   <div class="wrap">
-    <div><b>4</b>Signature Courses</div>
+    <div><b>5</b>Courses &amp; Minis</div>
     <div><b>50+</b>Whole-food Recipes</div>
     <div><b>Weekly</b>Fresh Meal Plans</div>
     <div><b>Est. 2020</b>Dallas, Texas</div>
@@ -324,6 +330,18 @@
           <div class="course-meta"><span>📺 6 modules</span><span>⏱ ~4 hrs</span></div>
           <div class="price-row"><span class="price">$147</span><span class="price-was">$189</span></div>
           <button class="btn btn-primary btn-sm" onclick="openCheckout('Nourished, Not Deprived','$147','Weight loss course · 6 modules · lifetime access')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course c-brew">
+        <div class="course-banner">🫧</div>
+        <div class="course-body">
+          <span class="pill">Ferment at Home</span>
+          <h3>Brew Your Own Kombucha</h3>
+          <p>Learn to brew from the co-founder of Alive &amp; Well: SCOBY care, first &amp; second ferments, flavoring, and troubleshooting.</p>
+          <div class="course-meta"><span>📺 4 modules</span><span>⏱ ~1.5 hrs</span></div>
+          <div class="price-row"><span class="price">$47</span></div>
+          <button class="btn btn-primary btn-sm" onclick="openCheckout('Brew Your Own Kombucha','$47','Fermentation mini-course · 4 modules · lifetime access')">Enroll Now</button>
+          <a href="https://www.amazon.com/s?k=kombucha+brewing+starter+kit" target="_blank" rel="noopener" style="font-size:.8rem;margin-top:10px;text-align:center">Need supplies? Starter kit →</a>
         </div>
       </div>
     </div>
@@ -406,6 +424,7 @@
     </div>
     <div class="filter-row" id="filters"></div>
     <div class="recipe-grid" id="recipeGrid"></div>
+    <div class="ad-slot">Advertisement · this slot runs Raptive / Mediavine display ads once traffic qualifies (~$25–50 per 1,000 pageviews on recipe content)</div>
   </div>
 </section>
 
@@ -445,6 +464,70 @@
         <p>My Amazon storefront: the air fryer behind those shishito peppers, gluten-free baking staples, fermentation jars, and more.</p>
         <div class="code-chip">CURATED LISTS</div>
         <button class="btn btn-dark btn-sm" onclick="openFaves()">See My Faves →</button>
+      </div>
+    </div>
+
+    <h3 class="sub-head">⚡ Instant Digital Downloads</h3>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-icon">🍬</div>
+        <h3>The 5-Day Sugar Reset</h3>
+        <p>A mini-course + workbook to break the sugar cycle in five days — swaps, blood-sugar basics, and a craving toolkit.</p>
+        <div class="price-tag">$9 <small style="color:#a9b3aa;text-decoration:line-through;font-size:.85rem">$17</small></div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('The 5-Day Sugar Reset','$9','Mini-course + workbook · instant access')">Get Instant Access</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🌾</div>
+        <h3>Celiac Starter Kit</h3>
+        <p>Newly diagnosed? The guide I wish I'd had at 20: safe brands, hidden-gluten checklist, cross-contact rules, and restaurant scripts.</p>
+        <div class="price-tag">$19</div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('Celiac Starter Kit','$19','Digital guide + printable dining cards · instant download')">Download Now</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">📖</div>
+        <h3>The Worthy Recipe eBook</h3>
+        <p>50 gut-loving, gluten-free recipes from the blog and members-only archive — with shoppable grocery lists for every week.</p>
+        <div class="price-tag">$19</div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('The Worthy Recipe eBook','$19','50 recipes · PDF + web edition · instant download')">Download Now</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🍽️</div>
+        <h3>GF Dining Out Cards</h3>
+        <p>Wallet-size printable cards that explain Celiac-safe prep to any kitchen — including translations for travel.</p>
+        <div class="price-tag">$9</div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('GF Dining Out Cards','$9','Printable card set · 6 languages · instant download')">Download Now</button>
+      </div>
+    </div>
+
+    <h3 class="sub-head">🎁 More Ways to Wellness</h3>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-icon">📦</div>
+        <h3>Worthy Wellness Box</h3>
+        <p>A quarterly box curated by Shyler: Alive &amp; Well kombucha, vetted GF snacks, and a seasonal recipe booklet.</p>
+        <div class="price-tag">$59<small style="font-size:.85rem;color:#8a978c">/quarter</small></div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('Worthy Wellness Box','$59/quarter','Quarterly subscription box · ships free · skip or cancel anytime')">Subscribe</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">📚</div>
+        <h3>The Cookbook (Print)</h3>
+        <p><em>Nutrition Worthy: Food for a Vibrant Life</em> — 80 recipes in a beautiful hardcover. First printing this fall.</p>
+        <div class="price-tag">$34</div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('Nutrition Worthy Cookbook (hardcover)','$34','Pre-order · ships October 2026 · signed first printing')">Pre-order</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">💝</div>
+        <h3>Gift Cards</h3>
+        <p>Give a course, a membership, or a wellness box. Digital gift cards delivered by email — perfect for New Year and Mother's Day.</p>
+        <div class="price-tag">$25–$100</div>
+        <button class="btn btn-dark btn-sm" onclick="openGiftCards()">Give the Gift</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🥣</div>
+        <h3>Fast Together Cohort</h3>
+        <p>A guided 5-day ProLon® group cycle: daily check-in emails, private group chat, and prep &amp; refeed guides. No 1:1 required.</p>
+        <div class="price-tag">$79</div>
+        <button class="btn btn-dark btn-sm" onclick="openCheckout('Fast Together: ProLon Group Cycle','$79','October 2026 cohort · ProLon kit purchased separately with code NUTRITIONWORTHY')">Join October Cohort</button>
       </div>
     </div>
   </div>
@@ -515,13 +598,34 @@
   </div>
 </section>
 
-<!-- CORPORATE -->
-<section class="section" style="padding-top:0">
-  <div class="wrap" style="text-align:center;max-width:760px">
-    <span class="eyebrow">For teams</span>
-    <h2 style="font-size:1.9rem;margin-bottom:14px">Corporate Wellness: The Happiness Advantage</h2>
-    <p style="color:#5b6a5e;margin-bottom:24px">A 4-week workplace program — Mindfulness, Balance, Movement, Support — delivered as live workshops or licensed as an on-demand course for your whole team. Pricing scales with team size.</p>
-    <button class="btn btn-ghost" onclick="openInquiry('Corporate Wellness Proposal')">Request a Proposal</button>
+<!-- PARTNER / B2B -->
+<section class="section" style="padding-top:0" id="partner">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">For organizations &amp; peers</span>
+      <h2>Partner with Nutrition Worthy</h2>
+      <p>Bigger engagements for teams, events, and fellow practitioners.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-icon">🏢</div>
+        <h3>Corporate Wellness</h3>
+        <p>The Happiness Advantage: a 4-week workplace program — Mindfulness, Balance, Movement, Support — delivered live or licensed on-demand per seat. Pricing scales with team size.</p>
+        <button class="btn btn-ghost btn-sm" onclick="openInquiry('Corporate Wellness Proposal')">Request a Proposal</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🎤</div>
+        <h3>Book Shyler to Speak</h3>
+        <p>Keynotes, lunch-and-learns, and panels on gut health, mindful nutrition, and building a wellness brand — in person (DFW) or virtual.</p>
+        <button class="btn btn-ghost btn-sm" onclick="openInquiry('Speaking Inquiry')">Check Availability</button>
+      </div>
+      <div class="shop-card">
+        <div class="shop-icon">🩺</div>
+        <h3>For Practitioners</h3>
+        <p>White-label meal plans and course licensing for RDs, health coaches, gyms, and yoga studios — done-for-you client content, your branding.</p>
+        <button class="btn btn-ghost btn-sm" onclick="openInquiry('Practitioner Licensing Inquiry')">Get the License Deck</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -533,7 +637,9 @@
         <p>Your guide to mindful nutrition. Helping you build a healthy, vibrant life — Dallas, TX.</p>
         <p style="margin-top:12px">
           <a href="https://www.instagram.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">📸 Instagram</a> &nbsp;·&nbsp;
-          <a href="https://www.facebook.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">👍 Facebook</a>
+          <a href="https://www.facebook.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">👍 Facebook</a> &nbsp;·&nbsp;
+          <a href="https://www.pinterest.com/nutritionworthy" target="_blank" rel="noopener" style="display:inline">📌 Pinterest</a> &nbsp;·&nbsp;
+          <a href="https://www.youtube.com/@nutritionworthy" target="_blank" rel="noopener" style="display:inline">▶️ YouTube</a>
         </p>
       </div>
       <div>
@@ -543,16 +649,19 @@
         <a href="#free-guide">Free Gut Reset Guide</a>
       </div>
       <div>
-        <h4>Eat</h4>
+        <h4>Eat &amp; Shop</h4>
         <a href="#meal-plans">Meal Plans</a>
         <a href="#recipes">Recipes</a>
         <a href="#shop">Shop My Picks</a>
+        <a href="#" onclick="openGiftCards();return false">Gift Cards</a>
       </div>
       <div>
         <h4>Connect</h4>
         <a href="#about">About Shyler</a>
         <a href="#" onclick="openContact();return false">Contact</a>
         <a href="#" onclick="openInquiry('Corporate Wellness Proposal');return false">Corporate Wellness</a>
+        <a href="#" onclick="openInquiry('Speaking Inquiry');return false">Book Shyler to Speak</a>
+        <a href="#" onclick="openInquiry('Practitioner Licensing Inquiry');return false">For Practitioners</a>
       </div>
     </div>
     <div class="disclaimer">
@@ -650,6 +759,7 @@ function render(cat){
         <div class="recipe-actions">
           <button class="btn btn-ghost" onclick="openRecipe(${idx})">View Recipe</button>
           <button class="btn btn-primary" onclick="openModal(${idx})">Shop Ingredients</button>
+          <a class="btn btn-ghost" style="flex:0 0 auto;padding:10px 12px" title="Pin this recipe" href="https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent('https://www.nutritionworthy.com/recipes')}&description=${encodeURIComponent(r.title+' — '+r.desc)}" target="_blank" rel="noopener">📌</a>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -696,23 +806,32 @@ function openRecipe(i){
   `);
 }
 
-/* ---------- Demo checkout ---------- */
+/* ---------- Demo checkout (with order bump) ---------- */
 function openCheckout(name, price, sub){
+  const m = price.match(/^\$([\d.]+)(.*)$/);
+  const base = m ? parseFloat(m[1]) : 0;
+  const suffix = m ? m[2] : '';
+  const showBump = base >= 20 && !/Gift|Sugar Reset|Meal Plan|Wellness Box|Week$/.test(name);
   openGen(`
     <h3>Checkout</h3>
     <div class="sub">Secure demo checkout · powered by Stripe in production</div>
     <div class="order-line"><span>${name}<br><small style="color:#8a978c">${sub}</small></span><b>${price}</b></div>
-    <form onsubmit="event.preventDefault();showSuccess('${name.replace(/'/g,'')}')" style="margin-top:18px">
+    ${showBump ? `<label class="bump"><input type="checkbox" onchange="toggleBump(this,${base},'${suffix}')"><span><b>Add the 7-Day Gut Reset Meal Plan for $10</b> <small style="color:#7c8a7e">(reg $24) — instant download, one-time offer</small></span></label>` : ''}
+    <form onsubmit="event.preventDefault();showSuccess('${name.replace(/'/g,'')}')" style="margin-top:14px">
       <label>Email</label><input type="email" placeholder="you@example.com" required>
       <label>Card number</label><input inputmode="numeric" placeholder="4242 4242 4242 4242" required>
       <div style="display:flex;gap:12px">
         <div style="flex:1"><label>Expiry</label><input placeholder="MM/YY" required></div>
         <div style="flex:1"><label>CVC</label><input placeholder="123" required></div>
       </div>
-      <button class="btn btn-primary" type="submit">Pay ${price}</button>
+      <button class="btn btn-primary" type="submit" id="payBtn">Pay ${price}</button>
     </form>
     <div class="demo-note">🔒 Demo only — no payment is processed and nothing is stored.</div>
   `);
+}
+function toggleBump(cb, base, suffix){
+  const total = cb.checked ? base + 10 : base;
+  document.getElementById('payBtn').textContent = `Pay $${total % 1 ? total.toFixed(2) : total}${suffix}`;
 }
 function showSuccess(name){
   openGen(`
@@ -750,6 +869,30 @@ function openFaves(){
     <h3>Kitchen &amp; Pantry Faves</h3>
     <div class="sub">My most-used tools &amp; staples · affiliate links, no extra cost to you</div>
     ${faves.map(([label,q])=>`<div class="fave-row"><span>🍳 ${label}</span><a href="${AMZ(q)}" target="_blank" rel="noopener">Amazon →</a></div>`).join('')}
+  `);
+}
+
+/* ---------- Gift cards ---------- */
+function openGiftCards(){
+  openGen(`
+    <h3>Give the Gift of Wellness</h3>
+    <div class="sub">Digital gift cards · delivered by email instantly or on a date you choose · never expire</div>
+    ${[25,50,100].map(v=>`<div class="fave-row"><span>💝 $${v} Gift Card${v===50?' <small style="color:#C96F4A;font-weight:700">most popular</small>':''}</span><a href="#" onclick="openCheckout('Nutrition Worthy Gift Card ($${v})','$${v}','Digital gift card · emailed with a personal note · never expires');return false">Buy $${v}</a></div>`).join('')}
+    <div class="demo-note">Redeemable on courses, meal plans, downloads &amp; the Wellness Box.</div>
+  `);
+}
+
+/* ---------- New-subscriber tripwire ---------- */
+function openTripwire(name){
+  openGen(`
+    <div style="text-align:center">
+      <div style="font-size:2.6rem;margin-bottom:6px">🍬</div>
+      <h3>One more thing, ${name}…</h3>
+      <p style="color:#5b6a5e;margin:12px 0 6px">Your free guide is downloading. As a new subscriber, you can grab <b>The 5-Day Sugar Reset</b> — my $17 mini-course — for just <b>$9</b>, on this visit only.</p>
+      <p style="color:#8a978c;font-size:.85rem;margin-bottom:18px">It's the #1 thing readers do after the gut reset.</p>
+      <button class="btn btn-primary" onclick="openCheckout('The 5-Day Sugar Reset','$9','New-subscriber offer · reg $17 · instant access')" style="width:100%">Yes! Add it for $9</button>
+      <button class="btn btn-ghost" onclick="closeGen()" style="width:100%;margin-top:10px">No thanks, just the free guide</button>
+    </div>
   `);
 }
 
@@ -819,6 +962,7 @@ function downloadGuide(e, form){
   document.body.appendChild(a); a.click(); a.remove();
   form.reset();
   toast(`Welcome, ${name}! Your guide just downloaded 💌`);
+  setTimeout(()=>openTripwire(name), 1200);
 }
 
 let toastTimer;
